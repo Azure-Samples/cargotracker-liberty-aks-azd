@@ -20,17 +20,17 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Install azd
-        uses: Azure/setup-azd@v2.0.0
+        uses: Azure/setup-azd@9653ee26f515b0ce205579894d4a49400f8da970 # v2.0.0
 
       - name: Install Az extensions
         run: |
           azd config set alpha.aks.helm on
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@215b7e5f829ab9cac114c149667e57dc1b70b4bc # v2.5.2
         with:
           java-version: '17'
           distribution: 'adopt'
@@ -44,7 +44,7 @@ jobs:
             --tenant-id ${{env.AZURE_TENANT_ID}}
 
       - name: Azure login
-        uses: azure/login@v2
+        uses: azure/login@7184910d9eb2b1c5e48f7073824a90609bb9b6d6 # v2.3.1
         with:
           client-id: ${{env.AZURE_CLIENT_ID}}
           tenant-id: ${{env.AZURE_TENANT_ID}}
